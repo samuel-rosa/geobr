@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Download shape files of micro region as sf objects — read_micro_region • geobr</title>
+<title>Download spatial data of micro regions — read_micro_region • geobr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Download shape files of micro region as sf objects — read_micro_region" />
+<meta property="og:title" content="Download spatial data of micro regions — read_micro_region" />
 <meta property="og:description" content="Data at scale 1:250,000, using Geodetic reference system &quot;SIRGAS2000&quot; and CRS(4674)" />
 
 
@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">geobr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Download shape files of micro region as sf objects</h1>
+    <h1>Download spatial data of micro regions</h1>
     <small class="dont-index">Source: <a href='https://github.com/ipeaGIT/geobr/tree/master/r-package/R/read_micro_region.R'><code>R/read_micro_region.R</code></a></small>
     <div class="hidden name"><code>read_micro_region.Rd</code></div>
     </div>
@@ -141,33 +141,39 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>code_micro</th>
-      <td><p>5-digit code of a micro region. If the two-digit code or a two-letter uppercase abbreviation of
-a state is passed, (e.g. 33 or "RJ") the function will load all micro regions of that state. If code_micro="all",
-all micro regions of the country are loaded.</p></td>
+      <td><p>5-digit code of a micro region. If the two-digit code or a
+two-letter uppercase abbreviation of a state is passed, (e.g. 33 or "RJ") the
+function will load all micro regions of that state. If <code>code_micro="all"</code>, all
+micro regions of the country are loaded.</p></td>
     </tr>
     <tr>
       <th>year</th>
-      <td><p>Year of the data (defaults to 2010)</p></td>
+      <td><p>Year of the data. Defaults to <code>2010</code></p></td>
     </tr>
     <tr>
       <th>simplified</th>
-      <td><p>Logic FALSE or TRUE, indicating whether the function returns the
-data set with 'original' resolution or a data set with 'simplified' borders (Defaults to TRUE).
-For spatial analysis and statistics users should set simplified = FALSE. Borders have been
-simplified by removing vertices of borders using st_simplifysf preserving topology with a dTolerance of 100.</p></td>
+      <td><p>Logic <code>FALSE</code> or <code>TRUE</code>, indicating whether the function
+returns the data set with original' resolution or a data set with 'simplified'
+borders. Defaults to <code>TRUE</code>. For spatial analysis and statistics users should
+set <code>simplified = FALSE</code>. Borders have been simplified by removing vertices of
+borders using <code><a href='https://r-spatial.github.io/sf/reference/geos_unary.html'>sf::st_simplify()</a></code> preserving topology with a <code>dTolerance</code> of 100.</p></td>
     </tr>
     <tr>
       <th>showProgress</th>
-      <td><p>Logical. Defaults to (TRUE) display progress bar</p></td>
+      <td><p>Logical. Defaults to <code>TRUE</code> display progress bar</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An <code>"sf" "data.frame"</code> object</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other general area functions: 
 <code><a href='read_amazon.html'>read_amazon</a>()</code>,
 <code><a href='read_biomes.html'>read_biomes</a>()</code>,
 <code><a href='read_census_tract.html'>read_census_tract</a>()</code>,
+<code><a href='read_comparable_areas.html'>read_comparable_areas</a>()</code>,
 <code><a href='read_conservation_units.html'>read_conservation_units</a>()</code>,
 <code><a href='read_country.html'>read_country</a>()</code>,
 <code><a href='read_health_region.html'>read_health_region</a>()</code>,
@@ -184,9 +190,6 @@ simplified by removing vertices of borders using st_simplifysf preserving topolo
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/ipeaGIT/geobr'>geobr</a></span><span class='op'>)</span>
-
 <span class='co'># Read an specific micro region a given year</span>
   <span class='va'>micro</span> <span class='op'>&lt;-</span> <span class='fu'>read_micro_region</span><span class='op'>(</span>code_micro<span class='op'>=</span><span class='fl'>11008</span>, year<span class='op'>=</span><span class='fl'>2018</span><span class='op'>)</span>
 
@@ -197,8 +200,6 @@ simplified by removing vertices of borders using st_simplifysf preserving topolo
 <span class='co'># Read all micro regions at a given year</span>
   <span class='va'>micro</span> <span class='op'>&lt;-</span> <span class='fu'>read_micro_region</span><span class='op'>(</span>code_micro<span class='op'>=</span><span class='st'>"all"</span>, year<span class='op'>=</span><span class='fl'>2010</span><span class='op'>)</span>
 <span class='op'>}</span>
-
-
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -2,6 +2,23 @@
 
 
 -------------------------------------------------------
+# geobr v1.6 (dev)
+
+### New data sets/functions
+* New function `read_comparable_areas` to read historically comparable municipalities, aka Areas minimas comparaveis (AMCs). Closes issue #17
+
+### Minor changes
+* Improved documentation considering `Roxygen: list(markdown = TRUE)`
+
+
+-------------------------------------------------------
+# geobr v1.5-1
+
+### Minor changes
+* Fixed unnecessary warning about internet connection. Closes #200.
+
+
+-------------------------------------------------------
 # geobr v1.5
 
 ### New data sets/functions

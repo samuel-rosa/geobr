@@ -2,9 +2,12 @@
 % Please edit documentation in R/list_geobr.R
 \name{list_geobr}
 \alias{list_geobr}
-\title{List all datasets available in the geobr package}
+\title{List all data sets available in the geobr package}
 \usage{
 list_geobr()
+}
+\value{
+A \code{data.frame}
 }
 \description{
 Returns a data frame with all datasets available in the geobr package

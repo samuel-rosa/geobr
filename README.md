@@ -109,6 +109,8 @@ More examples [here](https://github.com/ipeaGIT/geobr/tree/master/python-package
 |`read_health_region` | Health regions | 1991, 1994, 1997, 2001, 2005, 2013 | DataSUS |
 |`read_neighborhood` | Neighborhood limits |  2010 | IBGE |
 |`read_schools` | Schools |  2020 | INEP |
+|`read_comparable_areas` (dev) | Historically comparable municipalities, aka Areas minimas comparaveis (AMCs) |  1872,1900,1911,1920,1933,1940,1950,1960,1970,1980,1991,2000,2010 | IBGE |
+
 
 
 
@@ -131,7 +133,6 @@ Note 2. Most data sets are available at scale 1:250,000 (see documentation for d
 | Geography | Years available | Source |
 |-----|-----|-----|
 |`read_census_tract` | 2007 | IBGE |
-| Longitudinal Database* of municipalities | various years | IBGE | 
 | Longitudinal Database* of micro regions | various years | IBGE | 
 | Longitudinal Database* of Census tracts | various years | IBGE | 
 | ... | ... | ... | 
@@ -150,12 +151,23 @@ If you would like to contribute to geobr and add new functions or data sets, ple
 
 #### **Related projects**
 
-As of today, there are two other R packages with similar functionalities: [simplefeaturesbr](https://github.com/RobertMyles/simplefeaturesbr) and [brazilmaps](https://CRAN.R-project.org/package=brazilmaps). The **geobr** package has a few advantages when compared to these  other packages, including for example:
+As of today, there is another R package with similar functionalities: [simplefeaturesbr](https://github.com/RobertMyles/simplefeaturesbr). The **geobr** package has a few advantages when compared to *simplefeaturesbr*, including for example:
 - A same syntax structure across all functions, making the package very easy and intuitive to use
 - Access to a wider range of official spatial data sets, such as states and municipalities, but also macro-, meso- and micro-regions, weighting areas, census tracts, urbanized areas, etc
 - Access to shapefiles with updated geometries for various years
 - Harmonized attributes and geographic projections across geographies and years
+- Option to dowlonad geometries with simplified borders for fast rendering
+- Stable version published on CRAN for R users, and on PyPI for Python users
 
+**Similar packages for other countries/continents**
+- Africa: [afrimapr](https://afrimapr.github.io/afrimapr.website/)
+- Brazil: [geobr](https://ipeagit.github.io/geobr/)
+- Canada: [cancensus](https://mountainmath.github.io/cancensus/index.html)
+- Chile: [chilemapas](https://pacha.dev/chilemapas/)
+- Finland: [geofi](https://ropengov.github.io/geofi/)
+- Uruguay: [geouy](https://github.com/RichDeto/geouy)
+- USA: [tigris](https://github.com/walkerke/tigris)
+-  Global (political administrative boundaries): [rgeoboundaries](https://dickoa.gitlab.io/rgeoboundaries/)
 
 
 -----
@@ -165,4 +177,6 @@ As of today, there are two other R packages with similar functionalities: [simpl
 Original shapefiles are created by official government institutions. The **geobr** package is developed by a team at the Institute for Applied Economic Research (Ipea), Brazil. If you want to cite this package, you can cite it as:
 
 * Pereira, R.H.M.; Gonçalves, C.N.; et. all (2019) **geobr: Loads Shapefiles of Official Spatial Data Sets of Brazil**. GitHub repository - https://github.com/ipeaGIT/geobr.
+
+
 

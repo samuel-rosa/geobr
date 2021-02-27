@@ -58,7 +58,7 @@ harmonize_projection <- function(temp_sf){
 
 add_state_info <- function(temp_sf, column){
 
-  if(!is.null(temp_sf$code_muni)){
+  if(!is.null(temp_sf$code_muni) & !is.null(temp_sf$name_state)){
   # Add code_state
   temp_sf <- dplyr::mutate(code_state = ifelse(name_state== "Rondonia" | name_state== "Território De Rondonia"  | name_state== "Territorio de Rondonia",11,
                                         ifelse(name_state== "Acre" | name_state== "Território do Acre",12,
@@ -183,11 +183,11 @@ use_encoding_utf8 <- function(temp_sf){
 
   temp_sf <- temp_sf %>%
   mutate_if(is.factor, function(x){
-    x %>% as.character() %>% stringi::stri_encode("UTF-8") } )
+    x %>% as.character() %>% stringi::stri_encode(to="UTF-8") } )
 
   temp_sf <- temp_sf %>%
     mutate_if(is.character, function(x){
-      x  %>% stringi::stri_encode("UTF-8") } )
+      x  %>% stringi::stri_encode(to="UTF-8") } )
 
   return(temp_sf)
   }

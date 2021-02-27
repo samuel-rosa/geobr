@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_micro_region.R
 \name{read_micro_region}
 \alias{read_micro_region}
-\title{Download shape files of micro region as sf objects}
+\title{Download spatial data of micro regions}
 \usage{
 read_micro_region(
   code_micro = "all",
@@ -12,18 +12,23 @@ read_micro_region(
 )
 }
 \arguments{
-\item{code_micro}{5-digit code of a micro region. If the two-digit code or a two-letter uppercase abbreviation of
-a state is passed, (e.g. 33 or "RJ") the function will load all micro regions of that state. If code_micro="all",
-all micro regions of the country are loaded.}
+\item{code_micro}{5-digit code of a micro region. If the two-digit code or a
+two-letter uppercase abbreviation of a state is passed, (e.g. 33 or "RJ") the
+function will load all micro regions of that state. If \code{code_micro="all"}, all
+micro regions of the country are loaded.}
 
-\item{year}{Year of the data (defaults to 2010)}
+\item{year}{Year of the data. Defaults to \code{2010}}
 
-\item{simplified}{Logic FALSE or TRUE, indicating whether the function returns the
-data set with 'original' resolution or a data set with 'simplified' borders (Defaults to TRUE).
-For spatial analysis and statistics users should set simplified = FALSE. Borders have been
-simplified by removing vertices of borders using st_simplify{sf} preserving topology with a dTolerance of 100.}
+\item{simplified}{Logic \code{FALSE} or \code{TRUE}, indicating whether the function
+returns the data set with original' resolution or a data set with 'simplified'
+borders. Defaults to \code{TRUE}. For spatial analysis and statistics users should
+set \code{simplified = FALSE}. Borders have been simplified by removing vertices of
+borders using \code{sf::st_simplify()} preserving topology with a \code{dTolerance} of 100.}
 
-\item{showProgress}{Logical. Defaults to (TRUE) display progress bar}
+\item{showProgress}{Logical. Defaults to \code{TRUE} display progress bar}
+}
+\value{
+An \verb{"sf" "data.frame"} object
 }
 \description{
 Data at scale 1:250,000, using Geodetic reference system "SIRGAS2000" and CRS(4674)
@@ -46,6 +51,7 @@ Other general area functions:
 \code{\link{read_amazon}()},
 \code{\link{read_biomes}()},
 \code{\link{read_census_tract}()},
+\code{\link{read_comparable_areas}()},
 \code{\link{read_conservation_units}()},
 \code{\link{read_country}()},
 \code{\link{read_health_region}()},
