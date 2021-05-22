@@ -42,8 +42,7 @@
 <meta property="og:title" content="Download spatial data of Brazil's Legal Amazon — read_amazon" />
 <meta property="og:description" content="This data set covers the whole of Brazil's Legal Amazon as defined in the
 federal law n. 12.651/2012). The original data comes from the Brazilian
-Ministry of Environment (MMA) and can be found at
-http://mapas.mma.gov.br/i3geo/datadownload.htm." />
+Ministry of Environment (MMA) and can be found at &quot;http://mapas.mma.gov.br/i3geo/datadownload.htm&quot;." />
 
 
 
@@ -75,7 +74,7 @@ http://mapas.mma.gov.br/i3geo/datadownload.htm." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">geobr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.1</span>
       </span>
     </div>
 
@@ -131,8 +130,7 @@ http://mapas.mma.gov.br/i3geo/datadownload.htm." />
     <div class="ref-description">
     <p>This data set covers the whole of Brazil's Legal Amazon as defined in the
 federal law n. 12.651/2012). The original data comes from the Brazilian
-Ministry of Environment (MMA) and can be found at
-<a href='http://mapas.mma.gov.br/i3geo/datadownload.htm'>http://mapas.mma.gov.br/i3geo/datadownload.htm</a>.</p>
+Ministry of Environment (MMA) and can be found at "http://mapas.mma.gov.br/i3geo/datadownload.htm".</p>
     </div>
 
     <pre class="usage"><span class='fu'>read_amazon</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fl'>2012</span>, simplified <span class='op'>=</span> <span class='cn'>TRUE</span>, showProgress <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
@@ -183,11 +181,10 @@ borders using <code><a href='https://r-spatial.github.io/sf/reference/geos_unary
 <code><a href='read_weighting_area.html'>read_weighting_area</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span>  <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Read Brazilian Legal Amazon</span>
 <span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fu'>read_amazon</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fl'>2012</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Using year 2012</span></div><div class='output co'>#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%
-#&gt; Downloading: 1.7 kB     Downloading: 1.7 kB     Downloading: 2.1 kB     Downloading: 2.1 kB     Downloading: 2.4 kB     Downloading: 2.4 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 4.7 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 13 kB     Downloading: 21 kB     Downloading: 21 kB     Downloading: 21 kB     Downloading: 21 kB     Downloading: 21 kB     Downloading: 21 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 29 kB     Downloading: 37 kB     Downloading: 37 kB     Downloading: 37 kB     Downloading: 37 kB     Downloading: 45 kB     Downloading: 45 kB     Downloading: 45 kB     Downloading: 45 kB     Downloading: 53 kB     Downloading: 53 kB     Downloading: 53 kB     Downloading: 53 kB     Downloading: 61 kB     Downloading: 61 kB     Downloading: 61 kB     Downloading: 61 kB     Downloading: 61 kB     Downloading: 61 kB     Downloading: 70 kB     Downloading: 70 kB     Downloading: 70 kB     Downloading: 70 kB     Downloading: 78 kB     Downloading: 78 kB     Downloading: 86 kB     Downloading: 86 kB     Downloading: 86 kB     Downloading: 86 kB     Downloading: 86 kB     Downloading: 86 kB     Downloading: 94 kB     Downloading: 94 kB     Downloading: 94 kB     Downloading: 94 kB     Downloading: 100 kB     Downloading: 100 kB     Downloading: 100 kB     Downloading: 100 kB     Downloading: 100 kB     Downloading: 100 kB     Downloading: 110 kB     Downloading: 110 kB     Downloading: 110 kB     Downloading: 110 kB     Downloading: 110 kB     Downloading: 110 kB     Downloading: 120 kB     Downloading: 120 kB     Downloading: 130 kB     Downloading: 130 kB     Downloading: 130 kB     Downloading: 130 kB     Downloading: 130 kB     Downloading: 130 kB     Downloading: 140 kB     Downloading: 140 kB     Downloading: 150 kB     Downloading: 150 kB     Downloading: 160 kB     Downloading: 160 kB     Downloading: 170 kB     Downloading: 170 kB     Downloading: 170 kB     Downloading: 170 kB     Downloading: 170 kB     Downloading: 170 kB     </div><div class='input'><span class='co'># }</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

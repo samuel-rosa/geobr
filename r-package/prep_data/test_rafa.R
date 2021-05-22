@@ -29,7 +29,10 @@ utils::remove.packages("geobr")
 devtools::uninstall(pkg = "geobr")
 
 
+system.time(
 
+b <-read_state(code_state = c('all'))
+)
 
 
 ### 0. Data tests  -------------------------
@@ -203,7 +206,7 @@ Sys.setenv(NOT_CRAN = "true")
 function_coverage(fun='download_metadata', test_file("tests/testthat/test-download_metadata.R"))
 function_coverage(fun='list_geobr', test_file("tests/testthat/test-list_geobr.R"))
 function_coverage(fun='lookup_muni', test_file("tests/testthat/test-lookup_muni.R"))
-function_coverage(fun='grid_state_correspondence_table', test_file("tests/testthat/test-grid_state_correspondence_table.R"))
+# function_coverage(fun='grid_state_correspondence_table', test_file("tests/testthat/test-grid_state_correspondence_table.R"))
 function_coverage(fun='cep_to_state', test_file("tests/testthat/test-cep_to_state.R"))
 
 
@@ -229,6 +232,10 @@ function_coverage(fun='read_meso_region', test_file("tests/testthat/test-read_me
 function_coverage(fun='read_micro_region', test_file("tests/testthat/test-read_micro_region.R"))
 function_coverage(fun='read_state', test_file("tests/testthat/test-read_state.R"))
 function_coverage(fun='read_urban_area', test_file("tests/testthat/test-read_urban_area.R"))
+function_coverage(fun='read_pop_arrangements', test_file("tests/testthat/test-read_pop_arrangements.R"))
+function_coverage(fun='read_urban_concentrations', test_file("tests/testthat/test-read_urban_concentrations.R"))
+
+
 
 function_coverage(fun='read_indigenous_land', test_file("tests/testthat/test-read_indigenous_land.R"))
 function_coverage(fun='read_disaster_risk_area', test_file("tests/testthat/test-read_disaster_risk_area.R"))
@@ -331,12 +338,20 @@ devtools::spell_check(pkg = ".", vignettes = TRUE, use_wordlist = TRUE)
 pkgdown::build_site()
 
 
+### Check URL's----------------
+
+urlchecker::url_update()
+
+
 ### CMD Check ----------------
 # Check package errors
+rcmdcheck::rcmdcheck(build_args = c('--compact-vignettes=gs+qpdf'))
+
 
 # LOCAL
 Sys.setenv(NOT_CRAN = "true")
 devtools::check(pkg = ".",  cran = FALSE, env_vars = c(NOT_CRAN = "true"))
+
 
 # CRAN
 Sys.setenv(NOT_CRAN = "false")
@@ -352,16 +367,21 @@ a <- grid_state_correspondence_table
 names(a)[2] <- 'abbrev_state'
 
 
+stringi::stri_escape_unicode("Rondônia")
+stringi::stri_encode("Rondônia, goiás", from='latin1', to="ASCII")
+
 for (col in colnames(a)){
   Encoding(a[[col]]) <- "ASCII"}
 
+
+intToUtf8('São p')
 
 stringi::stri_encode(a$abbrev_state, from='latin1', to="ASCII")
 
 Encoding(a$name_uf)
 Encoding(a$code_state)
 a
-Encoding(a$name_uf) <- stringi::stri_encode(a$name_uf, from='latin1', to="ASCII")
+Encoding(a$name_uf) <- stringi::stri_encode("Rondônia, goiás", from='latin1', to="utf8")
 a
 
 stringi::stri_encode(a$, from='latin1', to="ASCII")
@@ -384,6 +404,10 @@ grid_state_correspondence_table
 
  system("R CMD build . --resave-data") # build tar.gz
  # devtools::build(pkg = ".", binary = T, manual=T) # build .zip
+
+
+
+
 
 
 

@@ -14,7 +14,7 @@ read_municipality(
 \arguments{
 \item{code_muni}{The 7-digit identification code of a municipality. If
 \code{code_muni = "all"} (default), all municipalities of the country will be
-downloaded. Alternativelly, if the two-digit identification code or a
+downloaded. Alternatively, if the two-digit identification code or a
 two-letter uppercase abbreviation of a state is passed, e.g. \code{33} or \code{"RJ"},
 all municipalities of that state will be downloaded. Municipality identification
 codes are defined in \url{https://www.ibge.gov.br/explica/codigos-dos-municipios.php}.}
@@ -36,7 +36,7 @@ An \verb{"sf" "data.frame"} object
 Data at scale 1:250,000, using Geodetic reference system "SIRGAS2000" and CRS(4674).
 }
 \examples{
-\donttest{
+\dontrun{ if (interactive()) {
 # Read specific municipality at a given year
 mun <- read_municipality(code_muni = 1200179, year = 2017)
 
@@ -46,8 +46,7 @@ mun <- read_municipality(code_muni = "RJ", year = 2010)
 
 # Read all municipalities of the country at a given year
 mun <- read_municipality(code_muni = "all", year = 2018)
-}
-
+}}
 }
 \seealso{
 Other general area functions: 

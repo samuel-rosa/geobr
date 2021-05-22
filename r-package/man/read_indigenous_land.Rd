@@ -7,7 +7,7 @@
 read_indigenous_land(date = 201907, simplified = TRUE, showProgress = TRUE)
 }
 \arguments{
-\item{date}{A date numer in YYYYMM format. Defaults to \code{201907}}
+\item{date}{A date number in YYYYMM format. Defaults to \code{201907}}
 
 \item{simplified}{Logic \code{FALSE} or \code{TRUE}, indicating whether the function
 returns the data set with original' resolution or a data set with 'simplified'
@@ -29,8 +29,8 @@ updated monthly, the geobr package will only keep the data for a few months
 per year.
 }
 \examples{
-\donttest{
+\dontrun{ if (interactive()) {
 # Read all indigenous land in an specific date
 i <- read_indigenous_land(date=201907)
-}
+}}
 }

@@ -1,15 +1,17 @@
-# geobr: Official Spatial Data Sets of Brazil 
+# geobr: Download Official Spatial Data Sets of Brazil 
 
 <img align="right" src="https://github.com/ipeaGIT/geobr/blob/master/r-package/man/figures/geobr_logo_b.png?raw=true" alt="logo" width="140"> 
 <img align="right" src="https://github.com/ipeaGIT/geobr/blob/master/r-package/man/figures/geobr_logo_y.png?raw=true" alt="logo" width="140">
 <p align="justify">geobr is a computational package to download official spatial data sets of Brazil. The package includes a wide range of geospatial data in geopackage format (like shapefiles but better), available at various geographic scales and for various years with harmonized attributes, projection and topology (see detailed list of available data sets below). </p> 
 
+
+
+
 The package is currently available in [**R**](https://CRAN.R-project.org/package=geobr) and [**Python**](https://pypi.org/project/geobr/).
 
 | ***R*** | ***Python*** | ***Repo***|
 |-----|-----|----|
-| [![CRAN/METACRAN Version](https://www.r-pkg.org/badges/version/geobr)](https://CRAN.R-project.org/package=geobr) <br /> [![CRAN/METACRAN Total downloads](http://cranlogs.r-pkg.org/badges/grand-total/geobr?color=blue)](https://CRAN.R-project.org/package=geobr) <br /> [![CRAN/METACRAN downloads per month](http://cranlogs.r-pkg.org/badges/geobr?color=yellow)](https://CRAN.R-project.org/package=geobr) <br /> [![Codecov test coverage](https://codecov.io/gh/ipeaGIT/geobr/branch/master/graph/badge.svg)](https://codecov.io/gh/ipeaGIT/geobr?branch=master) | [![PyPI version](https://badge.fury.io/py/geobr.svg)](https://badge.fury.io/py/geobr) <br />  [![Downloads](https://pepy.tech/badge/geobr)](https://pepy.tech/project/geobr) <br />  [![Downloads](https://pepy.tech/badge/geobr/month)](https://pepy.tech/project/geobr/month)|<img alt="GitHub stars" src="https://img.shields.io/github/stars/ipeaGIT/geobr.svg?color=orange"> <br /> [![Travis-CI Build Status](https://travis-ci.org/ipeaGIT/geobr.svg?branch=master)](https://travis-ci.org/ipeaGIT/geobr)  <br /> [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing) <br />  [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) |
-
+| [![CRAN/METACRAN Version](https://www.r-pkg.org/badges/version/geobr)](https://CRAN.R-project.org/package=geobr) <br /> [![CRAN/METACRAN Total downloads](http://cranlogs.r-pkg.org/badges/grand-total/geobr?color=blue)](https://CRAN.R-project.org/package=geobr) <br /> [![CRAN/METACRAN downloads per month](http://cranlogs.r-pkg.org/badges/geobr?color=yellow)](https://CRAN.R-project.org/package=geobr) <br /> [![Codecov test coverage](https://codecov.io/gh/ipeaGIT/geobr/branch/master/graph/badge.svg)](https://codecov.io/gh/ipeaGIT/geobr?branch=master)  <br /> [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable) | [![PyPI version](https://badge.fury.io/py/geobr.svg)](https://badge.fury.io/py/geobr) <br />  [![Downloads](https://pepy.tech/badge/geobr)](https://pepy.tech/project/geobr) <br />  [![Downloads](https://pepy.tech/badge/geobr/month)](https://pepy.tech/project/geobr/month)  <br /> [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing) |<img alt="GitHub stars" src="https://img.shields.io/github/stars/ipeaGIT/geobr.svg?color=orange"> <br /> [![R build status](https://github.com/ipeaGIT/geobr/workflows/R-CMD-check/badge.svg)](https://github.com/ipeaGIT/geobr/actions) <br /> [![Travis-CI Build Status](https://travis-ci.org/ipeaGIT/geobr.svg?branch=master)](https://travis-ci.org/ipeaGIT/geobr)  <br />  [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) |
 
 
 
@@ -62,7 +64,7 @@ mun <- read_municipality(code_muni="RJ", year=2010)
 # Read all municipalities in the country at a given year
 mun <- read_municipality(code_muni="all", year=2018)
 ```
-More examples [here](https://gist.github.com/rafapereirabr/99c9a2d2aecae87219c459965c75b155) and in the [intro Vignette](https://cran.r-project.org/web/packages/geobr/vignettes/intro_to_geobr.html)
+More examples in the [intro Vignette](https://cran.r-project.org/web/packages/geobr/vignettes/intro_to_geobr.html)
 
 ## Python, reading the data as a `geopandas` object
 ```python
@@ -86,16 +88,17 @@ More examples [here](https://github.com/ipeaGIT/geobr/tree/master/python-package
 
 |Function|Geographies available|Years available|Source|
 |-----|-----|-----|-----|
-|`read_country`| Country | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019 | IBGE |
-|`read_region`| Region | 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019 | IBGE |
-|`read_state`| States | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019 | IBGE |
-|`read_meso_region`| Meso region | 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019 |  IBGE |
-|`read_micro_region`| Micro region | 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019 | IBGE |
-|`read_intermediate_region`| Intermediate region | 2017, 2019 |  IBGE |
-|`read_immediate_region`| Immediate region | 2017, 2019 |  IBGE |
-|`read_weighting_area`| Census weighting area (área de ponderação) |  2010 | IBGE |
-|`read_census_tract`| Census tract (setor censitário) |  2000, 2010, 2017 | IBGE |
+|`read_country`| Country | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 | IBGE |
+|`read_region`| Region | 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 | IBGE |
+|`read_state`| States | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 | IBGE |
+|`read_meso_region`| Meso region | 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 |  IBGE |
+|`read_micro_region`| Micro region | 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 | IBGE |
+|`read_intermediate_region`| Intermediate region | 2017, 2019, 2020 |  IBGE |
+|`read_immediate_region`| Immediate region | 2017, 2019, 2020 |  IBGE |
+|`read_municipality`| Municipality | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2005, 2007, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 | IBGE |
 |`read_municipal_seat`| Municipality seats (sedes municipais) |  1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2010 | IBGE |
+|`read_weighting_area`| Census weighting area (área de ponderação) |  2010 | IBGE |
+|`read_census_tract`| Census tract (setor censitário) |  2000, 2010, 2017, 2019, 2020 | IBGE |
 |`read_statistical_grid` | Statistical Grid of 200 x 200 meters | 2010 | IBGE |
 |`read_metro_area` | Metropolitan areas | 1970, 2001, 2002, 2003, 2005, 2010, 2013, 2014, 2015, 2016, 2017, 2018 | IBGE | 
 |`read_urban_area` | Urban footprints | 2005, 2015 | IBGE | 
@@ -103,14 +106,15 @@ More examples [here](https://github.com/ipeaGIT/geobr/tree/master/python-package
 |`read_biomes` | Biomes | 2004, 2019 | IBGE | 
 |`read_conservation_units` | Environmental Conservation Units | 201909 | MMA | 
 |`read_disaster_risk_area` | Disaster risk areas | 2010 | CEMADEN and IBGE | 
-|`read_indigenous_land` | Indigenous lands | 201907 | FUNAI | 
+|`read_indigenous_land` | Indigenous lands | 201907, 202103 | FUNAI | 
 |`read_semiarid` | Semi Arid region | 2005, 2017 | IBGE | 
 |`read_health_facilities` | Health facilities | 2015 | CNES, DataSUS | 
-|`read_health_region` | Health regions | 1991, 1994, 1997, 2001, 2005, 2013 | DataSUS |
+|`read_health_region` | Health regions and macro regions | 1991, 1994, 1997, 2001, 2005, 2013 | DataSUS |
 |`read_neighborhood` | Neighborhood limits |  2010 | IBGE |
 |`read_schools` | Schools |  2020 | INEP |
-|`read_comparable_areas` (dev) | Historically comparable municipalities, aka Areas minimas comparaveis (AMCs) |  1872,1900,1911,1920,1933,1940,1950,1960,1970,1980,1991,2000,2010 | IBGE |
-
+|`read_comparable_areas` | Historically comparable municipalities, aka Areas minimas comparaveis (AMCs) |  1872,1900,1911,1920,1933,1940,1950,1960,1970,1980,1991,2000,2010 | IBGE |
+|`read_urban_concentrations` | Urban concentration areas (concentrações urbanas) | 2015 | IBGE | 
+|`read_pop_arrangements` | Population arrangements (arranjos populacioanis) | 2015 | IBGE | 
 
 
 
@@ -156,7 +160,7 @@ As of today, there is another R package with similar functionalities: [simplefea
 - Access to a wider range of official spatial data sets, such as states and municipalities, but also macro-, meso- and micro-regions, weighting areas, census tracts, urbanized areas, etc
 - Access to shapefiles with updated geometries for various years
 - Harmonized attributes and geographic projections across geographies and years
-- Option to dowlonad geometries with simplified borders for fast rendering
+- Option to download geometries with simplified borders for fast rendering
 - Stable version published on CRAN for R users, and on PyPI for Python users
 
 **Similar packages for other countries/continents**

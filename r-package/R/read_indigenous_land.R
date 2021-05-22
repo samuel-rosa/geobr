@@ -8,7 +8,7 @@
 #' updated monthly, the geobr package will only keep the data for a few months
 #' per year.
 #'
-#' @param date A date numer in YYYYMM format. Defaults to `201907`
+#' @param date A date number in YYYYMM format. Defaults to `201907`
 #' @param simplified Logic `FALSE` or `TRUE`, indicating whether the function
 #' returns the data set with original' resolution or a data set with 'simplified'
 #' borders. Defaults to `TRUE`. For spatial analysis and statistics users should
@@ -19,10 +19,10 @@
 #' @return An `"sf" "data.frame"` object
 #'
 #' @export
-#' @examples \donttest{
+#' @examples \dontrun{ if (interactive()) {
 #' # Read all indigenous land in an specific date
 #' i <- read_indigenous_land(date=201907)
-#' }
+#' }}
 read_indigenous_land <- function(date=201907, simplified=TRUE, showProgress=TRUE){
 
 # Get metadata with data url addresses

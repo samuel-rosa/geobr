@@ -13,23 +13,23 @@
   geo=list.files("//storage1/geobr/data_gpkg")
 
   # populate the metadata table
-  for (a in geo) {    # a="setor_censitario"
+  for (a in geo) {    # a="census_tract"
     ano=list.files(paste("//storage1/geobr/data_gpkg",a,sep="/"))
     for (b in ano) { # b=2000
       estado=list.files(paste("//storage1/geobr/data_gpkg",a,b,sep="/"))
-      for (c in estado) { #c="Urbano"
+      for (c in estado) { #c="Urbano"   c= "AC.gpkg"
         if (c=="Urbano"|c=="Rural"){
           estado2=list.files(paste("//storage1/geobr/data_gpkg",a,b,c,sep="/"))
           for (d in estado2) { #d=estado2[1]
             if (c=="Urbano") {
-              metadata[nrow(metadata) + 1,] = list(a,b,paste0("U",substr(d, 1, 2)),paste("http://www.ipea.gov.br/geobr/data_gpkg",a,b,c,d,sep="/"))
+              metadata[nrow(metadata) + 1,] = list(a,b,paste0("U",substr(d, 1, 2)),paste("https://www.ipea.gov.br/geobr/data_gpkg",a,b,c,d,sep="/"))
             }
             if (c=="Rural") {
-              metadata[nrow(metadata) + 1,] = list(a,b,paste0("R",substr(d, 1, 2)),paste("http://www.ipea.gov.br/geobr/data_gpkg",a,b,c,d,sep="/"))
+              metadata[nrow(metadata) + 1,] = list(a,b,paste0("R",substr(d, 1, 2)),paste("https://www.ipea.gov.br/geobr/data_gpkg",a,b,c,d,sep="/"))
             }
           }
         } else {
-        metadata[nrow(metadata) + 1,] = list(a,b,substr(c, 1, 2),paste("http://www.ipea.gov.br/geobr/data_gpkg",a,b,c,sep="/"))}
+        metadata[nrow(metadata) + 1,] = list(a,b,substr(c, 1, 2),paste("https://www.ipea.gov.br/geobr/data_gpkg",a,b,c,sep="/"))}
       }
     }
   }
@@ -71,8 +71,12 @@
   table(metadata$geo)
   table(metadata$year)
 
-  subset(metadata, geo == 'amc')
-  subset(metadata, geo == 'census_tract' & year==2017)
+  subset(metadata, geo == 'pop_arrengements')
+  subset(metadata, geo == 'urban_concentrations')
+  subset(metadata, geo == 'meso_region')[1:4,]
+  subset(metadata, geo == 'micro_region')[1:4,]
+  subset(metadata, geo == 'census_tract' & year==2020)
+  subset(metadata, year==2020)
 
 
 # save updated metadata table

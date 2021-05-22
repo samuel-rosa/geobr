@@ -1,10 +1,9 @@
-#' Download spatial data of Brazilian environmental conservation untis
+#' Download spatial data of Brazilian environmental conservation units
 #'
 #' @description
 #' This data set covers the whole of Brazil and it includes the polygons of all
-#' conservation untis present in Brazilian territory. The last update of the data
-#' was 09-2019. The original data comes from MMA and can be found at
-#' \url{http://mapas.mma.gov.br/i3geo/datadownload.htm}.
+#' conservation units present in Brazilian territory. The last update of the data
+#' was 09-2019. The original data comes from MMA and can be found at "http://mapas.mma.gov.br/i3geo/datadownload.htm".
 #'
 #' @param date A date number in YYYYMM format. Defaults to `201909`
 #' @param simplified Logic FALSE or TRUE, indicating whether the function
@@ -18,10 +17,10 @@
 #'
 #' @export
 #' @family general area functions
-#' @examples \donttest{
+#' @examples \dontrun{ if (interactive()) {
 #' # Read conservation_units
 #' b <- read_conservation_units(date = 201909)
-#'}
+#'}}
 read_conservation_units <- function(date=201909, simplified=TRUE, showProgress=TRUE){
 
   # Get metadata with data url addresses

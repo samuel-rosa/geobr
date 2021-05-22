@@ -6,7 +6,7 @@
 #' @param year Year of the data. Defaults to `2010`.
 #' @param code_muni The 7-digit identification code of a municipality. If
 #' `code_muni = "all"` (default), all municipalities of the country will be
-#' downloaded. Alternativelly, if the two-digit identification code or a
+#' downloaded. Alternatively, if the two-digit identification code or a
 #' two-letter uppercase abbreviation of a state is passed, e.g. `33` or `"RJ"`,
 #' all municipalities of that state will be downloaded. Municipality identification
 #' codes are defined in \url{https://www.ibge.gov.br/explica/codigos-dos-municipios.php}.
@@ -21,7 +21,7 @@
 #'
 #' @export
 #' @family general area functions
-#' @examples \donttest{
+#' @examples \dontrun{ if (interactive()) {
 #' # Read specific municipality at a given year
 #' mun <- read_municipality(code_muni = 1200179, year = 2017)
 #'
@@ -31,8 +31,7 @@
 #'
 #' # Read all municipalities of the country at a given year
 #' mun <- read_municipality(code_muni = "all", year = 2018)
-#'}
-#'
+#'}}
 read_municipality <-
   function(code_muni = "all", year = 2010, simplified = TRUE, showProgress = TRUE) {
 
@@ -60,7 +59,7 @@ read_municipality <-
       else if(nchar(code_muni)==2){
 
       # invalid state code
-      if( !(code_muni %in% substr(temp_sf$code_muni,1,2)) & !(code_muni %in% temp_meta$abbrev_state)){
+      if( !(code_muni %in% substr(temp_sf$code_muni,1,2)) & !(code_muni %in% temp_sf$abbrev_state)){
         stop("Error: Invalid value to argument code_muni")}
 
         else if (is.numeric(code_muni)){

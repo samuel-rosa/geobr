@@ -92,7 +92,6 @@ select_metadata <- function(geography, year=NULL, simplified=NULL){
 
 #' Download geopackage to tempdir
 #'
-#'
 #' @param file_url A string with the file_url address of a geobr dataset
 #' @param progress_bar Logical. Defaults to (TRUE) display progress bar
 #' @export
@@ -104,26 +103,42 @@ download_gpkg <- function(file_url, progress_bar = showProgress){
 
 ## one single file
 
-  if(length(file_url)==1 & progress_bar == TRUE){
+  if (length(file_url)==1 & progress_bar == TRUE) {
 
-    # download file
+    # location of temp_file
     temps <- paste0(tempdir(),"/", unlist(lapply(strsplit(file_url,"/"),tail,n=1L)))
-    httr::GET(url=file_url, httr::progress(), httr::write_disk(temps, overwrite = T))
 
-    # load gpkg
+    # check if file has not been downloaded already. If not, download it
+    if (!file.exists(temps)) {
+
+      # test server connection
+      check_connection(file_url[1])
+
+      # download data
+      httr::GET(url=file_url, httr::progress(), httr::write_disk(temps, overwrite = T))
+      }
+
+    # load gpkg to memory
     temp_sf <- load_gpkg(file_url, temps)
     return(temp_sf)
-
-
     }
 
-  else if(length(file_url)==1 & progress_bar == FALSE){
+  else if (length(file_url)==1 & progress_bar == FALSE) {
 
-    # download file
+    # location of temp_file
     temps <- paste0(tempdir(),"/", unlist(lapply(strsplit(file_url,"/"),tail,n=1L)))
-    httr::GET(url=file_url, httr::write_disk(temps, overwrite = T))
 
-    # load gpkg
+    # check if file has not been downloaded already. If not, download it
+    if (!file.exists(temps)) {
+
+      # test server connection
+      check_connection(file_url[1])
+
+      # download data
+      httr::GET(url=file_url, httr::write_disk(temps, overwrite = T))
+      }
+
+    # load gpkg to memory
     temp_sf <- load_gpkg(file_url, temps)
     return(temp_sf)
   }
@@ -138,12 +153,23 @@ download_gpkg <- function(file_url, progress_bar = showProgress){
     total <- length(file_url)
     pb <- utils::txtProgressBar(min = 0, max = total, style = 3)
 
+    # test server connection
+    check_connection(file_url[1])
+
     # download files
     lapply(X=file_url, function(x){
-      i <- match(c(x),file_url)
-      httr::GET(url=x, #httr::progress(),
-                httr::write_disk(paste0(tempdir(),"/", unlist(lapply(strsplit(x,"/"),tail,n=1L))), overwrite = T))
-      utils::setTxtProgressBar(pb, i)})
+
+      # location of temp_file
+      temps <- paste0(tempdir(),"/", unlist(lapply(strsplit(x,"/"),tail,n=1L)))
+
+      # check if file has not been downloaded already. If not, download it
+      if (!file.exists(temps)) {
+                                i <- match(c(x),file_url)
+                                httr::GET(url=x, #httr::progress(),
+                                          httr::write_disk(temps, overwrite = T))
+                                utils::setTxtProgressBar(pb, i)
+                                }
+      })
 
     # closing progress bar
     close(pb)
@@ -157,11 +183,22 @@ download_gpkg <- function(file_url, progress_bar = showProgress){
 
   else if(length(file_url) > 1 & progress_bar == FALSE) {
 
+    # test server connection
+    check_connection(file_url[1])
+
     # download files
     lapply(X=file_url, function(x){
-      i <- match(c(x),file_url)
-      httr::GET(url=x, #httr::progress(),
-                httr::write_disk(paste0(tempdir(),"/", unlist(lapply(strsplit(x,"/"),tail,n=1L))), overwrite = T))})
+
+      # location of temp_file
+      temps <- paste0(tempdir(),"/", unlist(lapply(strsplit(x,"/"),tail,n=1L)))
+
+      # check if file has not been downloaded already. If not, download it
+      if (!file.exists(temps)) {
+                                i <- match(c(x),file_url)
+                                httr::GET(url=x, #httr::progress(),
+                                          httr::write_disk(temps, overwrite = T))
+                              }
+      })
 
 
     # load gpkg
@@ -210,5 +247,38 @@ load_gpkg <- function(file_url, temps=NULL){
   temp_sf <- load_gpkg(file_url, temps)
   return(temp_sf)
 }
+
+
+
+
+
+
+#' Check internet connection with Ipea server
+#'
+#' @description
+#' Checks if there is internet connection to Ipea server to download geobr data.
+#'
+#' @param file_url A string with the file_url address of an geobr dataset
+#'
+#' @return Logic `TRUE or `FALSE`.
+#'
+#' @export
+#' @family support functions
+#'
+check_connection <- function(file_url = 'https://www.ipea.gov.br/geobr/metadata/metadata_gpkg.csv'){
+
+  # check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
+  }
+
+  # test server connection
+  if (! crul::ok(file_url, verbose=FALSE) ) {
+    message("Problem connecting to data server. Please try geobr again in a few minutes.")
+    return(invisible(NULL))
+  }
+}
+
 
 # nocov end

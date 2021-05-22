@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">geobr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.1</span>
       </span>
     </div>
 
@@ -123,23 +123,66 @@
       <small>Source: <a href='https://github.com/ipeaGIT/geobr/tree/master/r-package/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="geobr-v16-dev" class="section level1">
-<h1 class="page-header" data-toc-text="1.6">
-<a href="#geobr-v16-dev" class="anchor"></a>geobr v1.6 (dev)<small> Unreleased </small>
+    <div id="geobr-v170-dev" class="section level1">
+<h1 class="page-header" data-toc-text="1.7.0">
+<a href="#geobr-v170-dev" class="anchor"></a>geobr v1.7.0 (dev)<small> Unreleased </small>
+</h1>
+<hr>
+</div>
+    <div id="geobr-v161" class="section level1">
+<h1 class="page-header" data-toc-text="1.6.1">
+<a href="#geobr-v161" class="anchor"></a>geobr v1.6.1<small> 2021-04-16 </small>
+</h1>
+<div id="minor-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>Improved <code><a href="../reference/check_connection.html">check_connection()</a></code> to fail gracefully. Return message, no error.</li>
+</ul>
+<hr>
+</div>
+</div>
+    <div id="geobr-v160" class="section level1">
+<h1 class="page-header" data-toc-text="1.6.0">
+<a href="#geobr-v160" class="anchor"></a>geobr v1.6.0<small> Unreleased </small>
 </h1>
 <div id="new-data-setsfunctions" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-data-setsfunctions" class="anchor"></a>New data sets/functions</h3>
 <ul>
+<li>From v1.6 onwards, <code>geobr</code> stores downloaded in temporary cache in <code><a href="https://rdrr.io/r/base/tempfile.html">tempdir()</a></code>. Closes #225.</li>
 <li>New function <code>read_comparable_areas</code> to read historically comparable municipalities, aka Areas minimas comparaveis (AMCs). Closes issue #17</li>
+<li>New data set of macro regions og health, which can be accessed using the new <code>macro</code> parameter added to <code><a href="../reference/read_health_region.html">read_health_region()</a></code> function. Closes issue #219.</li>
+<li>New internal support function <code>is_online()</code>to check internet connection with Ipea server. Closes #229</li>
+<li>New data/function <code>read_urban_concentrations</code>. Closes #232</li>
+<li>New data/function <code>read_pop_arrangements</code>. Closes #231</li>
+<li>updated data sets for 2020:
+<ul>
+<li>Country</li>
+<li>Regions</li>
+<li>States</li>
+<li>Micro regions</li>
+<li>Meso regions</li>
+<li>Immediate regions</li>
+<li>Intermediate regions</li>
+<li>Municipalities</li>
+<li>Census tracts</li>
+</ul>
+</li>
+<li>Updated data of indigenous land March 2021</li>
 </ul>
 </div>
-<div id="minor-changes" class="section level3">
+<div id="minor-changes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
 <ul>
+<li>Improved package test coverage to 99.16%.</li>
 <li>Improved documentation considering <code>Roxygen: list(markdown = TRUE)</code>
 </li>
+<li>fix column names of <code>grid_state_correspondence_table</code>
+</li>
+<li>Improve warning message regarding connection to geobr server at Ipea</li>
+<li>Fix <code>read_municipality</code> when reading a state abbreviation before 1991.</li>
 </ul>
 <hr>
 </div>
@@ -148,9 +191,9 @@
 <h1 class="page-header" data-toc-text="1.5-1">
 <a href="#geobr-v15-1" class="anchor"></a>geobr v1.5-1<small> 2021-02-06 </small>
 </h1>
-<div id="minor-changes-1" class="section level3">
+<div id="minor-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Fixed unnecessary warning about internet connection. Closes #200.</li>
 </ul>
@@ -170,9 +213,9 @@
 <li>new function <code>cep_to_state</code> to determine the state of a given CEP postal code (added in 2021-01).</li>
 </ul>
 </div>
-<div id="minor-changes-2" class="section level3">
+<div id="minor-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>geobr now automatically detects if there is an internet connection problem and throws an error. Closes issue #178</li>
 <li>imports <code>data.table</code> to use <code>rbindlist</code> and improve package speed when downloading data for the whole country. Closes issue #199.</li>
@@ -193,9 +236,9 @@
 <li>updated 2019 data sets of <code>intermediate</code>, <code>immediate</code> <code>micro</code> and <code>meso</code> regions, <code>states</code> and <code>municipalities</code>.</li>
 </ul>
 </div>
-<div id="minor-changes-3" class="section level3">
+<div id="minor-changes-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>improved documentation of argument <code>simplified</code>
 </li>
@@ -231,9 +274,9 @@
 </li>
 </ul>
 </div>
-<div id="minor-changes-4" class="section level3">
+<div id="minor-changes-5" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-5" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>reorganization of internal support functions to reduce code redundancy</li>
 <li>substantial improvment in test coverage of functions</li>
@@ -267,9 +310,9 @@
 <li>Pretty much all functions now download the data for the entire country as a default. Closes issue #77. The only exceptions are <code>read_statistical_grid</code> and <code>read_census_tract</code>. These two functions do take a really long time to load the data for the whole country and it might crash R due to memory limits, so the user must be more ‘aware’ about her choice (2020-02)</li>
 </ul>
 </div>
-<div id="minor-changes-5" class="section level3">
+<div id="minor-changes-6" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-5" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-6" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>New utils.R script containing support functions to reduce code redundancy (2020-02)</li>
 </ul>
@@ -296,9 +339,9 @@
 <li>function <code>download_metadata</code> simply the download of df with data set addresses.</li>
 </ul>
 </div>
-<div id="minor-changes-6" class="section level3">
+<div id="minor-changes-7" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-6" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-7" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Changes to <code>read_region</code> function to improve speed and remove <code>dplyr</code>dependency (added in 2019-10-22).</li>
 <li>Shows a single download progress bar when <code>*_code="all"</code>. This fixes the output of vignette and closes issue #42 (2019-08-05)</li>
@@ -311,7 +354,7 @@
 <a href="#geobr-v10-2019-07-30" class="anchor"></a>geobr v1.0 (2019-07-30)<small> 2019-08-05 </small>
 </h1>
 <ul>
-<li>Launch of <strong>geobr</strong> v1.0 on <a href="https://cran.r-project.org/web/packages/geobr/index.html">CRAN</a> with the following data sets:
+<li>Launch of <strong>geobr</strong> v1.0 on <a href="https://CRAN.R-project.org/package=geobr">CRAN</a> with the following data sets:
 <ul>
 <li>Country</li>
 <li>States</li>

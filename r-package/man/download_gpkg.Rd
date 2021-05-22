@@ -16,6 +16,7 @@ Download geopackage to tempdir
 }
 \seealso{
 Other support functions: 
+\code{\link{check_connection}()},
 \code{\link{load_gpkg}()},
 \code{\link{select_data_type}()},
 \code{\link{select_metadata}()},

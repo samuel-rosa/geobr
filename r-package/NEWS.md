@@ -1,14 +1,49 @@
 # log history of geobr package development
 
+-------------------------------------------------------
+# geobr v1.7.0 (dev)
+
+
+
 
 -------------------------------------------------------
-# geobr v1.6 (dev)
+# geobr v1.6.1
 
-### New data sets/functions
-* New function `read_comparable_areas` to read historically comparable municipalities, aka Areas minimas comparaveis (AMCs). Closes issue #17
 
 ### Minor changes
+* Improved `check_connection()` to fail gracefully. Return message, no error.
+
+
+
+-------------------------------------------------------
+# geobr v1.6.0
+
+### New data sets/functions
+* From v1.6 onwards, `geobr` stores downloaded in temporary cache in `tempdir()`. Closes #225.
+* New function `read_comparable_areas` to read historically comparable municipalities, aka Areas minimas comparaveis (AMCs). Closes issue #17
+* New data set of macro regions og health, which can be accessed using the new `macro` parameter added to `read_health_region()` function. Closes issue #219.
+* New internal support function `is_online()`to check internet connection with Ipea server. Closes #229
+* New data/function `read_urban_concentrations`. Closes #232
+* New data/function `read_pop_arrangements`. Closes #231
+* updated data sets for 2020:
+  * Country
+  * Regions
+  * States
+  * Micro regions
+  * Meso regions
+  * Immediate regions
+  * Intermediate regions
+  * Municipalities
+  * Census tracts
+* Updated data of indigenous land March 2021
+
+  
+### Minor changes
+* Improved package test coverage to 99.16%.
 * Improved documentation considering `Roxygen: list(markdown = TRUE)`
+* fix column names of `grid_state_correspondence_table`
+* Improve warning message regarding connection to geobr server at Ipea
+* Fix `read_municipality` when reading a state abbreviation before 1991.
 
 
 -------------------------------------------------------
@@ -114,7 +149,7 @@
 -------------------------------------------------------
 # geobr v1.0 (2019-07-30)
 
-* Launch of **geobr** v1.0 on [CRAN](https://cran.r-project.org/web/packages/geobr/index.html) with the following data sets:
+* Launch of **geobr** v1.0 on [CRAN](https://CRAN.R-project.org/package=geobr) with the following data sets:
   * Country
   * States
   * Regions
